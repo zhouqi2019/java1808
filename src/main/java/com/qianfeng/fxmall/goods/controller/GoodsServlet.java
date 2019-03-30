@@ -93,6 +93,7 @@ public class GoodsServlet extends BaseServlet {
             ServletFileUpload upload = new ServletFileUpload();
             upload.setSizeMax(10 * 1024 *1024);
             FileItemIterator itr =upload.getItemIterator(req);
+            int i = 0;
             while(itr.hasNext()) {
                 FileItemStream item = itr.next();
                 if (item.isFormField()) {
@@ -126,16 +127,22 @@ public class GoodsServlet extends BaseServlet {
                     if (filename != null) {
                         String filename2 = UUID.randomUUID().toString() + filename.substring(filename.lastIndexOf("."));
                         //保存新文件名,用于存入数据库
-                        wxbGood.setGoodPic(filename2);
-                        wxbGood.setGoodPic1(filename2);
-                        wxbGood.setGoodPic2(filename2);
+                        if(i == 0){
+                            wxbGood.setGoodPic(filename2);
+                        }
+                        if(i == 1){
+                            wxbGood.setGoodPic1(filename2);
+                        }
+                        if(i == 2){
+                            wxbGood.setGoodPic2(filename2);
+                        }
                         filename = UPLOAD_PATH + filename2;
                         //创建文件输出流
                         FileOutputStream out = new FileOutputStream(filename);
                         //读上传文件流,写入文件
                         Streams.copy(item.openStream(), out, true);
                         System.out.println("图片上传成功");
-
+                        i++;
                     }
                 }
             }
