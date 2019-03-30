@@ -15,4 +15,11 @@ public class GoodsDAOImpl implements IGoodDAO {
         List<WxbGood> goods = goodsMapper.queryGoodsByPage(page, SystemConstantsUtils.Page.PAGE_SIZE);
         return goods;
     }
+
+    @Override
+    public void insertGoods(WxbGood wxbGood) {
+        GoodsMapper goodsMapper = MyBatisSessionFactoryUtils.getSession().getMapper(GoodsMapper.class);
+        goodsMapper.insertGoods(wxbGood);
+        MyBatisSessionFactoryUtils.getSession().commit();
+    }
 }

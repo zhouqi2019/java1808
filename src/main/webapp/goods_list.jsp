@@ -185,7 +185,7 @@
                         </li>
 
                         <li>
-                            <a href="http://localhost:8081/cust/goods/add">
+                            <a href="addGoods.jsp">
                                 <i class="icon-pencil"></i>
                                 增加商品
                             </a>
@@ -533,8 +533,8 @@
                                         <div class="col-sm-6">
                                             <div class="dataTables_paginate paging_bootstrap sender">
                                                 <ul class="pagination">
-                                                    <li><a href="goods.do?page=1" class="active">1</a></li>
-                                                    <li><a href="goods.do?page=2">2</a></li>
+                                                    <li><a href="goods.do?m=queryGoodsByPage&page=1" class="active">1</a></li>
+                                                    <li><a href="goods.do?m=queryGoodsByPage&page=2">2</a></li>
                                                 </ul>
 
 

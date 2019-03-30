@@ -10,5 +10,14 @@ import java.util.List;
  */
 
 public interface IGoodDAO {
+
+    /**
+     * 查询所有商品信息并分页
+     * @param page
+     * @return
+     * @throws Exception
+     */
     List<WxbGood> queryGoodsByPage(Integer page) throws Exception;
+
+    void insertGoods(WxbGood wxbGood);
 }

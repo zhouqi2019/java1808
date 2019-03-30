@@ -1,6 +1,8 @@
 package com.qianfeng.fxmall.goods.bean;
 
 
+import java.util.List;
+
 public class WxbGood {
 
   private String goodId;
@@ -34,7 +36,14 @@ public class WxbGood {
   private long isfdfk;
   private long leixingId;
   private String kfqq;
+  private List<WxbGoodSku> goodSkuList;
+  public List<WxbGoodSku> getGoodSkuList() {
+    return goodSkuList;
+  }
 
+  public void setGoodSkuList(List<WxbGoodSku> goodSkuList) {
+    this.goodSkuList = goodSkuList;
+  }
 
   public String getGoodId() {
     return goodId;
