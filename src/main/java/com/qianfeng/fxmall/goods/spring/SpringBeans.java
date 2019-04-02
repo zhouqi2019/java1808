@@ -1,4 +1,4 @@
-package com.qianfeng.fxmall.commons.mybatis;
+package com.qianfeng.fxmall.goods.spring;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -12,43 +12,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 @Configuration
-public class MyBatisSessionFactoryUtils {
+public class SpringBeans {
 
-    /**
-     * 饿汉单例模式
-     */
-//    public static SqlSessionFactory sqlSessionFactory;
-//    private static ThreadLocal<SqlSession> threadLocal = new ThreadLocal<>();
-//
-//    static {
-//        initSessionFactory();
-//    }
-//
-//    private static  void initSessionFactory(){
-//        try {
-//            //1.加载配置文件(全局)
-//            InputStream inputStream = Resources.getResourceAsStream("mybatis.cfg.xml");
-//            //2.全局唯一
-//            sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//    public static SqlSessionFactory getSqlSessionFactory(){
-//        if(sqlSessionFactory == null){
-//            initSessionFactory();
-//        }
-//        return sqlSessionFactory;
-//    }
-//    public static SqlSession getSession(){
-//        System.out.println(Thread.currentThread().getName());
-//        SqlSession session = threadLocal.get();
-//        if(session == null){
-//            session = sqlSessionFactory.openSession();
-//            threadLocal.set(session);
-//        }
-//        return session;
-//    }
     //如果此对象不需要注入到其他位置，就不需要交给spring管理
     private static ThreadLocal<SqlSession> threadLocal = new ThreadLocal<>();
 

@@ -1,7 +1,6 @@
 package com.qianfeng.fxmall.goods.controller;
 
 import com.qianfeng.fxmall.goods.bean.WxbGood;
-import com.qianfeng.fxmall.goods.bean.WxbGoodSku;
 import com.qianfeng.fxmall.goods.service.IGoodsService;
 import com.qianfeng.fxmall.goods.service.impl.GoodsServiceImpl;
 import org.apache.commons.fileupload.FileItemIterator;
@@ -9,6 +8,7 @@ import org.apache.commons.fileupload.FileItemStream;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.fileupload.util.Streams;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,25 +21,9 @@ import java.util.UUID;
 
 public class GoodsServlet extends BaseServlet {
     public static final String UPLOAD_PATH = "D:/ZQ/test/";
-    private IGoodsService goodsService = new GoodsServiceImpl();
-
-    /*@Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String pageStr = req.getParameter("page");
-        try {
-            pageStr = pageStr ==null?"1":pageStr;
-            List<WxbGood> goodList = goodsService.queryGoodsByPage(Integer.parseInt(pageStr));
-            req.setAttribute("goodsList",goodList);
-            req.getRequestDispatcher("goods_list.jsp").forward(req,resp);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-    }*/
+    //private IGoodsService goodsService = new GoodsServiceImpl();
+    final ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+    IGoodsService goodsService = applicationContext.getBean(GoodsServiceImpl.class);
 
     /**
      * 查找所有商品信息并分页
