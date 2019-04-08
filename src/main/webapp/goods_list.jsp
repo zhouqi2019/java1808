@@ -490,7 +490,7 @@
                                         <c:forEach var="goods" items="${goodsList}">
                                             <tr>
                                                 <td class="center">1</td>
-                                                <td class="left"><a href="http://localhost:8081/cust/goods/list#" onclick="window.location.href='/cust/goods/add?good_id=14886110'">${goods.goodName}</a></td>
+                                                <td class="left"><a href="goods.do?m=queryGoodsById&goodId=${goods.goodId}" onclick="window.location.href=''">${goods.goodName}</a></td>
                                                 <td class="center">${goods.skuCost}</td>
                                                 <td class="center">${goods.skuPmoney}</td>
                                                 <td class="center">${goods.createTime}</td>

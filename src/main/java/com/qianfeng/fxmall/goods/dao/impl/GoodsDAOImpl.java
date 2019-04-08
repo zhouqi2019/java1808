@@ -31,4 +31,10 @@ public class GoodsDAOImpl implements IGoodDAO {
         goodsMapper.insertGoods(wxbGood);
         session.commit();
     }
+
+    @Override
+    public WxbGood queryGoodsById(String goodId) {
+        WxbGood goodsMapper = session.getMapper(GoodsMapper.class).queryGoodsById(goodId);
+        return goodsMapper;
+    }
 }

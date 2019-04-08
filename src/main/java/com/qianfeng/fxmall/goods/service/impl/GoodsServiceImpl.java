@@ -7,9 +7,11 @@ import com.qianfeng.fxmall.goods.dao.IGoodDAO;
 import com.qianfeng.fxmall.goods.service.IGoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Component
+//@Component
+@Service
 public class GoodsServiceImpl implements IGoodsService {
 
     //private IGoodDAO goodsDao = new GoodsDAOImpl();
@@ -31,5 +33,10 @@ public class GoodsServiceImpl implements IGoodsService {
     @Override
     public void insertGoods(WxbGood wxbGood) {
         iGoodDAO.insertGoods(wxbGood);
+    }
+
+    @Override
+    public WxbGood queryGoodsById(String goodId) {
+        return iGoodDAO.queryGoodsById(goodId);
     }
 }

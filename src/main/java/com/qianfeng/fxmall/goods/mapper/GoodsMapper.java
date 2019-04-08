@@ -10,4 +10,6 @@ public interface GoodsMapper {
     List<WxbGood> queryGoodsByPage(@Param("index")Integer index,@Param("size") Integer size);
 
     void insertGoods(WxbGood wxbGood);
+
+    WxbGood queryGoodsById(@Param("goodId") String goodId);
 }

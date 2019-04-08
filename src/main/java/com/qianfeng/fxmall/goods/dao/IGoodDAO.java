@@ -1,6 +1,7 @@
 package com.qianfeng.fxmall.goods.dao;
 
 import com.qianfeng.fxmall.goods.bean.WxbGood;
+import org.apache.ibatis.annotations.Param;
 
 
 import java.util.List;
@@ -20,4 +21,6 @@ public interface IGoodDAO {
     List<WxbGood> queryGoodsByPage(Integer page) throws Exception;
 
     void insertGoods(WxbGood wxbGood);
+
+    WxbGood queryGoodsById(String goodId);
 }

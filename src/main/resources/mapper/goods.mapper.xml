@@ -4,37 +4,37 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qianfeng.fxmall.goods.mapper.GoodsMapper">
         <resultMap type="com.qianfeng.fxmall.goods.bean.WxbGood" id="baseResultMap">
-        <id column="good_id" property="goodId"/>
-        <result column="good_name" property="goodName"/>
-        <result column="customer_id" property="customerId"/>
-        <result column="good_pic" property="goodPic"/>
-        <result column="good_pic1" property="goodPic1"/>
-        <result column="good_pic2" property="goodPic2"/>
-        <result column="promote_desc" property="promoteDesc"/>
-        <result column="sku_title" property="skuTitle"/>
-        <result column="sku_cost" property="skuCost"/>
-        <result column="sku_price" property="skuPrice"/>
-        <result column="sku_pmoney" property="skuPmoney"/>
-        <result column="copy_ids" property="copyIds"/>
-        <result column="copy_desc" property="copyDesc"/>
-        <result column="forward_link" property="forwardLink"/>
-        <result column="order_no" property="orderNo"/>
-        <result column="type_id" property="typeId"/>
-        <result column="tags" property="tags"/>
-        <result column="state" property="state"/>
-        <result column="create_time" property="createTime"/>
-        <result column="toped" property="toped"/>
-        <result column="recomed" property="recomed"/>
-        <result column="toped_time" property="topedTime"/>
-        <result column="recomed_time" property="recomedTime"/>
-        <result column="spc_id" property="spcId"/>
-        <result column="zon_id" property="zonId"/>
-        <result column="sell_num" property="sellNum"/>
-        <result column="website" property="website"/>
-        <result column="iswxpay" property="iswxpay"/>
-        <result column="isfdfk" property="isfdfk"/>
-        <result column="leixing_id" property="leixingId"/>
-        <result column="kfqq" property="kfqq"/>
+            <id property="goodId" column="good_id" javaType="java.lang.String"/>
+            <result property="goodName" column="good_name" javaType="java.lang.String"/>
+            <result property="customerId" column="customer_id" javaType="java.lang.String"/>
+            <result property="goodPic" column="good_pic" javaType="java.lang.String"/>
+            <result property="goodPic1" column="good_pic1" javaType="java.lang.String"/>
+            <result property="goodPic2" column="good_pic2" javaType="java.lang.String"/>
+            <result property="promoteDesc" column="promote_desc" javaType="java.lang.String"/>
+            <result property="skuTitle" column="sku_title" javaType="java.lang.String"/>
+            <result property="skuCost" column="sku_cost" javaType="java.lang.String"/>
+            <result property="skuPrice" column="sku_price" javaType="java.lang.String"/>
+            <result property="skuPmoney" column="sku_pmoney" javaType="java.lang.String"/>
+            <result property="copyIds" column="copy_ids" javaType="java.lang.String"/>
+            <result property="copyDesc" column="copy_desc" javaType="java.lang.String"/>
+            <result property="forwardLink" column="forward_link" javaType="java.lang.String"/>
+            <result property="orderNo" column="order_no" javaType="java.lang.Long"/>
+            <result property="typeId" column="type_id" javaType="java.lang.String"/>
+            <result property="tags" column="tags" javaType="java.lang.String"/>
+            <result property="state" column="state" javaType="java.lang.Long"/>
+            <result property="createTime" column="create_time" javaType="java.sql.Timestamp"/>
+            <result property="toped" column="toped" javaType="java.lang.Long"/>
+            <result property="recomed" column="recomed" javaType="java.lang.Long"/>
+            <result property="topedTime" column="toped_time" javaType="java.sql.Timestamp"/>
+            <result property="recomedTime" column="recomed_time" javaType="java.sql.Timestamp"/>
+            <result property="spcId" column="spc_id" javaType="java.lang.String"/>
+            <result property="zonId" column="zon_id" javaType="java.lang.String"/>
+            <result property="sellNum" column="sell_num" javaType="java.lang.Long"/>
+            <result property="website" column="website" javaType="java.lang.String"/>
+            <result property="iswxpay" column="iswxpay" javaType="java.lang.Long"/>
+            <result property="isfdfk" column="isfdfk" javaType="java.lang.Long"/>
+            <result property="leixingId" column="leixing_id" javaType="java.lang.Long"/>
+            <result property="kfqq" column="kfqq" javaType="java.lang.String"/>
         <!--<collection property="goodSkuList" ofType="com.qianfeng.fxmall.goods.bean.WxbGoodSku">-->
             <!--<id property="skuId" column="sku_id" javaType="java.lang.String"/>-->
             <!--<result property="skuName" column="sku_name" javaType="java.lang.String"/>-->
@@ -62,4 +62,11 @@
         #{orderNo}, #{typeId}, #{tags}, #{state}, #{createTime}, #{toped}, #{recomed}, #{topedTime}, #{recomedTime}, #{spcId}, #{zonId}, #{sellNum}, #{website}, #{iswxpay}, #{isfdfk},
         #{leixingId}, #{kfqq})
     </insert>
+
+    <select id="queryGoodsById" resultMap="baseResultMap">
+        select
+          <include refid="params"/>
+        from wxb_good where good_id=#{goodId}
+    </select>
+
 </mapper>

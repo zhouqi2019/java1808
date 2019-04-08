@@ -10,6 +10,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.fileupload.util.Streams;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileOutputStream;
@@ -131,9 +132,16 @@ public class GoodsServlet extends BaseServlet {
                 }
             }
         }
-        IGoodsService goodsService = new GoodsServiceImpl();
         goodsService.insertGoods(wxbGood);
         System.out.println("图片上传成功");
         queryGoodsByPage(req,resp);
+    }
+
+
+    public void queryGoodsById(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException {
+        String goodId = req.getParameter("goodId");
+        WxbGood wxbGood = goodsService.queryGoodsById(goodId);
+        req.setAttribute("wxbGood",wxbGood);
+        req.getRequestDispatcher("Particulars.jsp").forward(req,resp);
     }
 }
