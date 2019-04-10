@@ -1,6 +1,7 @@
 package com.qianfeng.fxmall.goods.dao.impl;
 
-import com.qianfeng.fxmall.commons.info.SystemConstantsUtils;
+import com.qianfeng.fxmall.commons.info.Constants;
+
 import com.qianfeng.fxmall.commons.mybatis.MyBatisSessionFactoryUtils;
 import com.qianfeng.fxmall.goods.bean.WxbGood;
 import com.qianfeng.fxmall.goods.dao.IGoodDAO;
@@ -21,7 +22,8 @@ public class GoodsDAOImpl implements IGoodDAO {
     public List<WxbGood> queryGoodsByPage(Integer page) throws Exception {
 
         GoodsMapper goodsMapper = session.getMapper(GoodsMapper.class);
-        List<WxbGood> goods = goodsMapper.queryGoodsByPage(page, SystemConstantsUtils.Page.PAGE_SIZE);
+        //List<WxbGood> goods = goodsMapper.queryGoodsByPage(page, SystemConstantsUtils.Page.PAGE_SIZE);
+        List<WxbGood> goods = goodsMapper.queryGoodsByPage(page, Constants.Page.PAGE_SIZE);
         return goods;
     }
 

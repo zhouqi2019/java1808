@@ -1,3 +1,4 @@
+/*
 package com.qianfeng.fxmall.goods.spring;
 
 import org.apache.ibatis.io.Resources;
@@ -24,7 +25,8 @@ public class SpringBeans {
         return sqlSessionFactory;
     }
 
-    /**
+    */
+/**
      * 此方法的参数，@bean注解修饰的方法中的参数会由spring自动注入。
      *
      * 注意：
@@ -32,7 +34,8 @@ public class SpringBeans {
      * 2、ThreadLocal
      * @param sqlSessionFactory
      * @return
-     */
+     *//*
+
     @Scope("prototype")
     @Bean
     public SqlSession provideSession(SqlSessionFactory sqlSessionFactory){
@@ -50,3 +53,4 @@ public class SpringBeans {
         return session1;
     }
 }
+*/
